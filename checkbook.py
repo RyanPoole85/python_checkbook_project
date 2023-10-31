@@ -21,15 +21,25 @@ def view_balance(ledger):
 
 # Function to record a debit (withdrawal)
 def record_debit(ledger):
-    debit = float(input("\nHow much would you like to withdraw? $"))
-    ledger.append(-debit)
-    print(f"\nDebit of ${debit:.2f} recorded.")
+    while True:
+        try:
+            debit = float(input("\nHow much would you like to withdraw? $"))
+            ledger.append(-debit)
+            print(f"\nDebit of ${debit:.2f} recorded.")
+            break
+        except ValueError:
+            print("\nNot a valid number. Please enter a valid number for the debit.")
 
 # Function to record a credit (deposit)
 def record_credit(ledger):
-    credit = float(input("\nHow much would you like to deposit? $"))
-    ledger.append(credit)
-    print(f"\nCredit of ${credit:.2f} recorded.")
+    while True:
+        try:
+            credit = float(input("\nHow much would you like to deposit? $"))
+            ledger.append(credit)
+            print(f"\nCredit of ${credit:.2f} recorded.")
+            break
+        except ValueError:
+            print("\nNot a valid number. Please enter a valid number for the credit.")
 
 # Main function to run the checkbook application
 def main():
@@ -63,3 +73,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
